@@ -141,12 +141,12 @@ createDisk() {
       else
 
         # Create an empty file
-        if ! fallocate -l "$DATA_SIZE" "$DISK_FILE"; then
+        # if ! fallocate -l "$DATA_SIZE" "$DISK_FILE"; then
           if ! truncate -s "$DATA_SIZE" "$DISK_FILE"; then
             rm -f "$DISK_FILE"
             error "$FAIL" && exit 77
           fi
-        fi
+        # fi
 
       fi
       ;;
@@ -219,11 +219,11 @@ resizeDisk() {
       else
 
         # Resize file by allocating more space
-        if ! fallocate -l "$DATA_SIZE" "$DISK_FILE"; then
+        # if ! fallocate -l "$DATA_SIZE" "$DISK_FILE"; then
           if ! truncate -s "$DATA_SIZE" "$DISK_FILE"; then
             error "$FAIL" && exit 75
           fi
-        fi
+        # fi
 
       fi
       ;;
